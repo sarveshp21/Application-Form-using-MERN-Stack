@@ -1,38 +1,123 @@
-.App {
+/* Filename - App.css */
+/* It containds the Form and Page Styling*/
+
+body {
+  background: #f3f3f3;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 500px;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.heading {
+  font-size: 15px;
+  text-align: center;
+  color: #f3f3f3;
+  background-color: #003049;
+  padding: 2px;
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 60px;
 }
 
-.App-link {
-  color: #61dafb;
+.img1{
+  height: 50px;
+  width: 50px;
+  margin-right: 50px;
+  animation: rotate 7s linear infinite;
 }
 
-@keyframes App-logo-spin {
+.img2{
+  height: 50px;
+  width: 50px;
+  margin-left: 50px;
+  animation: rotate 7s linear infinite;
+}
+
+
+@keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Start rotation from 0 degrees */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* End rotation at 360 degrees */
   }
 }
+
+fieldset {
+  border: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  /* margin-bottom: 15px; */
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 12px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline;
+  width: 10%;
+}
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #555;
+  font-weight: bold;
+}
+
+button {
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px;
+  border: none;
+  color: #f3f3f3;
+  cursor: pointer;
+  background-color: #003049;
+  width: 40%;
+  font-size: 20px;
+}
+textarea {
+  resize: none;
+  width: 98%;
+  min-height: 100px;
+  max-height: 150px;
+}
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+      opacity: 0;
+  }
+}
+
