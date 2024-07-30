@@ -78,19 +78,68 @@ function App() {
     };
     
 
+    // const handleDownloadPDF = (data) => {
+    //     const doc = new jsPDF();
+    //     doc.text(`First Name: ${data.firstName}`, 10, 10);
+    //     doc.text(`Last Name: ${data.lastName}`, 10, 20);
+    //     doc.text(`Email: ${data.email}`, 10, 30);
+    //     doc.text(`Contact: ${data.contact}`, 10, 40);
+    //     doc.text(`Gender: ${data.gender}`, 10, 50);
+    //     doc.textWithLink(`GitHub Profile Link: ${data.url1}`, 10, 60, { url: data.url1 });
+    //     doc.textWithLink(`LinkedIn Profile Link: ${data.url2}`, 10, 70, { url: data.url2 });
+    //     doc.text(`Selected Option: ${data.selectedOption}`, 10, 80);
+    //     doc.text(`About: ${data.about}`, 10, 90);
+    //     doc.save("form-data.pdf");
+    // };
+
     const handleDownloadPDF = (data) => {
         const doc = new jsPDF();
-        doc.text(`First Name: ${data.firstName}`, 10, 10);
-        doc.text(`Last Name: ${data.lastName}`, 10, 20);
-        doc.text(`Email: ${data.email}`, 10, 30);
-        doc.text(`Contact: ${data.contact}`, 10, 40);
-        doc.text(`Gender: ${data.gender}`, 10, 50);
-        doc.textWithLink(`GitHub Profile Link: ${data.url1}`, 10, 60, { url: data.url1 });
-        doc.textWithLink(`LinkedIn Profile Link: ${data.url2}`, 10, 70, { url: data.url2 });
-        doc.text(`Selected Option: ${data.selectedOption}`, 10, 80);
-        doc.text(`About: ${data.about}`, 10, 90);
+        
+        // Set font size
+        doc.setFontSize(12);
+    
+        // Add text
+        doc.text(`First Name:`, 10, 10);
+        doc.text(`${data.firstName}`, 50, 10, { align: "left" });
+    
+        doc.text(`Last Name:`, 10, 20);
+        doc.text(`${data.lastName}`, 50, 20, { align: "left" });
+    
+        // Set text color for email to blue
+        doc.text(`Email:`, 10, 30);
+        doc.setTextColor(0, 0, 255);
+        doc.text(`${data.email}`, 50, 30, { align: "left" });
+    
+        // Reset text color to black
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Contact:`, 10, 40);
+        doc.text(`${data.contact}`, 50, 40, { align: "left" });
+    
+        doc.text(`Gender:`, 10, 50);
+        doc.text(`${data.gender}`, 50, 50, { align: "left" });
+    
+        // Add links with mixed colors
+        doc.text(`GitHub Profile Link:`, 10, 60);
+        doc.setTextColor(0, 0, 255);
+        doc.textWithLink(`${data.url1}`, 50, 60, { url: data.url1 });
+    
+        doc.setTextColor(0, 0, 0);
+        doc.text(`LinkedIn Profile Link:`, 10, 70);
+        doc.setTextColor(0, 0, 255);
+        doc.textWithLink(`${data.url2}`, 50, 70, { url: data.url2 });
+    
+        // Reset text color to black
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Selected Option:`, 10, 80);
+        doc.text(`${data.selectedOption}`, 50, 80, { align: "left" });
+    
+        doc.text(`About:`, 10, 90);
+        doc.text(`${data.about}`, 50, 90, { align: "left" });
+    
+        // Save the PDF
         doc.save("form-data.pdf");
     };
+    
 
     const handleReset = () => {
         reset();
@@ -109,7 +158,7 @@ function App() {
                 {!submitted ? (
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <p className="disclaimer blink" style={{ color: "red" }}>
-                            **Please fill the form before <strong>15th June</strong>**.
+                            **Please fill the form before <strong>15th August</strong>**.
                         </p>
 
                         <label htmlFor="firstname">First Name*</label>
